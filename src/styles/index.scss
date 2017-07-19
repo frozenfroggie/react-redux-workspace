@@ -1,0 +1,9 @@
+@import "/helpers/mixins";
+@import "/helpers/variables";
+
+.test {
+  width: 200px;
+  .inside {
+    color: red;
+  }
+}
