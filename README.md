@@ -1,2 +1,2 @@
 # react-redux-workspace
-Simply workspace using react and redux
+Simply workspace using React and Redux and Mocha for tests
