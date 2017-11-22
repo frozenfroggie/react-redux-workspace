@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/react/index.js',
+    entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -28,7 +28,7 @@ module.exports = {
               test: /\.scss$/,
               use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader','sass-loader']
+                use: ['css-loader', 'postcss-loader', 'sass-loader']
               })
             },
             {
@@ -42,10 +42,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles/index.css'),
+        new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('production')}), // This tells the Webpack and Babel for optimization
         new HtmlWebpackPlugin({template: 'src/index.html'}),
+        new ExtractTextPlugin('styles/index.css'), //to extract css file
         new CleanWebpackPlugin(['dist']), // to clean dist folder before every building
-        new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('production')}), // This tells the Webpack and Babel for optimization for performance
         new webpack.optimize.UglifyJsPlugin(), //To minify js
         new webpack.NoEmitOnErrorsPlugin(), // Makes sure Webpack will not compile if Errors
     ]

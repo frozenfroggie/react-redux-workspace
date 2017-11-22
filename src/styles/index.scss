@@ -2,6 +2,7 @@
 @import "/helpers/variables";
 
 .test {
+  display: flex;
   width: 200px;
   .inside {
     color: red;

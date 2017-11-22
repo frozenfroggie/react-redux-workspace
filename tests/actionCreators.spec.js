@@ -1,8 +1,7 @@
-import { sampleAction } from '../src/redux/actions/sampleAction';
-import * as types from '../src/redux/constants/actionTypes';
+import { sampleAction } from '../src/js/actions/sampleActions';
+import * as types from '../src/js/constants/actionTypes';
 
-import chai from "chai";
-var assert = chai.assert;
+import chai from 'chai';
 var expect = chai.expect;
 
 describe('ACTION CREATORS', () => {
@@ -12,8 +11,8 @@ describe('ACTION CREATORS', () => {
       const expectedAction = {
         type: types.SAMPLE_ACTION,
         payload: text
-      }
+      };
       expect(sampleAction(text)).to.deep.equal(expectedAction);
-    })
-  })
+    });
+  });
 });
